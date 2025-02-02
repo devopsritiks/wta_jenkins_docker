@@ -119,4 +119,7 @@ http://Replace_with_Your_Backend_IP:5000/time?country=India
 - **Backend Developer**: Ritik Sharma
 - **Docker and Deployment**: Ritik Sharma
 
+## Note
+(Replace the default IP in the app.py and index.html file with your public ip or run as a local host for app to work.)
+
 For further details, contact: **devopsritiks@gmail.com**
