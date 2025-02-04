@@ -10,7 +10,7 @@ pipeline {
         DOCKER_USERNAME = "Replace_with_yours"
         BACKEND_IMAGE = "${DOCKER_USERNAME}/world-time-app-backend"
         FRONTEND_IMAGE = "${DOCKER_USERNAME}/world-time-app-frontend"
-        IMAGE_TAG_BD = "1.0" (Change version here.)
+        IMAGE_TAG_BD = "1.0" ##Change version here!
         IMAGE_TAG_FD = "1.0"
         PREV_IMAGE_TAG_BD = "1.0"
         PREV_IMAGE_TAG_FD = "1.0"
