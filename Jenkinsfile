@@ -1,6 +1,5 @@
 pipeline {
-    agent { label 'build_agent' }
-
+    agent any
     parameters {
         booleanParam(name: 'BD_IMG_CHANGED', defaultValue: false, description: 'Set to true if backend image needs to be rebuilt')
         booleanParam(name: 'FD_IMG_CHANGED', defaultValue: false, description: 'Set to true if frontend image needs to be rebuilt')
@@ -11,10 +10,10 @@ pipeline {
         DOCKER_USERNAME = "Replace_with_yours"
         BACKEND_IMAGE = "${DOCKER_USERNAME}/world-time-app-backend"
         FRONTEND_IMAGE = "${DOCKER_USERNAME}/world-time-app-frontend"
-        IMAGE_TAG_BD = "1.3"
-        IMAGE_TAG_FD = "1.3"
-        PREV_IMAGE_TAG_BD = "1.2"
-        PREV_IMAGE_TAG_FD = "1.2"
+        IMAGE_TAG_BD = "1.0" (Change version here.)
+        IMAGE_TAG_FD = "1.0"
+        PREV_IMAGE_TAG_BD = "1.0"
+        PREV_IMAGE_TAG_FD = "1.0"
     }
 
     options {
@@ -32,7 +31,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 echo "Cloning the GitLab repository..."
-                git branch: 'main', url: 'https://Replace_with_yours@Replace_with_yours.gitlab.com/Replace_with_yours/world-time-project.git'
+                git branch: 'main', url: 'https://github.com/devopsritiks/wta_jenkins_docker.git'
             }
         }
 
