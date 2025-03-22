@@ -2,14 +2,14 @@ version: '3.8'
 
 services:
   backend:
-    image: devopsritiks/world-time-app-backend:1.3
+    image: devopsritiks/world-time-app-backend:${BACKEND_IMAGE_TAG}
     ports:
       - "5000:5000"
     networks:
       - app-network
 
   frontend:
-    image: devopsritiks/world-time-app-frontend:1.3
+    image: devopsritiks/world-time-app-frontend:${FRONTEND_IMAGE_TAG}
     ports:
       - "8081:80"
     networks:
