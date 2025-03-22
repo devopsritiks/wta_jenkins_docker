@@ -95,16 +95,23 @@ pipeline {
         }
 
         stage('Deploy Application') {
-            steps {
-                echo "//Deploying the application using Docker Compose..."
-                withEnv(["COMPOSE_HTTP_TIMEOUT=1800"]) {
-                    sh '''
-                        docker-compose down || true
-                        docker-compose up -d
-                    '''
-                }
-            }
+    steps {
+        echo "# Updating .env file with latest image tags..."
+        sh """
+            echo "BACKEND_IMAGE_TAG=${IMAGE_TAG_BD}" > .env
+            echo "FRONTEND_IMAGE_TAG=${IMAGE_TAG_FD}" > .env
+        """
+
+        echo "# Deploying the application using Docker Compose..."
+        withEnv(["COMPOSE_HTTP_TIMEOUT=1800"]) {
+            sh '''
+                docker-compose down || true
+                docker-compose up -d
+            '''
         }
+    }
+}
+
 
         stage('Prune Unused Docker Images') {
             steps {
